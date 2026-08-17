@@ -1,0 +1,321 @@
+/* =====================================================
+   BUSHRA MACHALLAH — Design System
+   Palette: Nuit d'encens — ambre profond, or pâle, fumée
+   ===================================================== */
+
+:root {
+  /* Couleurs principales */
+  --color-obsidian: #0D0A08;       /* fond le plus sombre */
+  --color-charcoal: #1A1410;       /* fond sections sombres */
+  --color-ember: #2C1D0E;          /* fond cartes sombres */
+  --color-oud: #4A2C0A;            /* accent brun-oud */
+  --color-amber: #C17B2F;          /* doré-ambré principal */
+  --color-gold: #E8B86D;           /* or lumineux */
+  --color-cream: #F5EDD8;          /* crème chaud */
+  --color-smoke: #8C7B6B;          /* gris fumée */
+  --color-ash: #B5A090;            /* cendres claires */
+  --color-white: #FAF6F0;          /* blanc chaud */
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-luxury: 'Cinzel', 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 9rem;
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration-fast: 200ms;
+  --duration-med: 400ms;
+  --duration-slow: 700ms;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-obsidian);
+  color: var(--color-cream);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Responsive font sizing */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Typography scale */
+.display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+
+.display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+.display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2vw, 1.8rem);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.body-lg {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.body {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-oud);
+  border-radius: 3px;
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-amber);
+  outline-offset: 3px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes smokeRise {
+  0% { transform: translateY(0) scaleX(1); opacity: 0.6; }
+  50% { transform: translateY(-40px) scaleX(1.3); opacity: 0.3; }
+  100% { transform: translateY(-80px) scaleX(0.8); opacity: 0; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 0.8s var(--ease-smooth) both;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s var(--ease-smooth) both;
+}
+
+/* Delay utilities */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Gold gradient text */
+.gold-text {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-amber) 50%, var(--color-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Divider */
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--color-amber);
+  margin: var(--space-md) auto;
+}
+
+.divider--left {
+  margin: var(--space-md) 0;
+}
+
+/* 404 Not Found */
+.not-found {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-lg);
+  padding-top: 120px;
+  gap: 1.5rem;
+}
+
+.not-found__icon {
+  font-size: clamp(3rem, 8vw, 5rem);
+  opacity: 0.4;
+}
+
+.not-found__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 300;
+  color: var(--color-cream);
+  line-height: 1;
+}
+
+.not-found__desc {
+  color: var(--color-smoke);
+  font-size: 1.1rem;
+  max-width: 400px;
+}
+
+@media (max-width: 768px) {
+  .not-found {
+    padding-top: 100px;
+    gap: 1rem;
+  }
+  .not-found__desc {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .not-found {
+    padding-top: 80px;
+    padding-bottom: var(--space-2xl);
+    gap: 0.75rem;
+  }
+  .not-found__desc {
+    font-size: 0.95rem;
+  }
+}

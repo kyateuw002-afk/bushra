@@ -1,0 +1,6 @@
+{
+  "name": "Bushra Machallah Boutique",
+  "description": "Boutique en ligne de senteurs raffinées, encens artisanaux (Thiouraye) et encensoirs traditionnels du Sénégal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
